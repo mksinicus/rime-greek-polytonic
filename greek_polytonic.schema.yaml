@@ -4,16 +4,17 @@
 schema:
   schema_id: greek_polytonic
   name: "多调希腊文"
-  version: "0.1"
+  version: "1.0"
   author:
     - Qayisoqho <sxjdhx@163.com>
+    - mksinicus <marcuszhonggh@foxmail.com>
   description: |
     多调希腊文输入方案，当然也可以用于输入现代希腊文
     力求直观，尽可能忠于古典希腊语的音系
     输入先照顾音段内容，再补充超音段内容，故附加符号（主要是声调符号）输入在下加iota之后
-    '['前导为粗气符，']'前导为柔气符
-    短音符号不常出现，故以类似象形的方式输入'v'
-    '='前导可以输入废弃或异体字母
+    h/H 前导为粗气符，q/Q 前导为柔气符
+    短音符号 <
+    = 前导可以输入废弃或异体字母
 
     鸣谢：
     - polyhedron 的 rime-greek (https://github.com/biopolyhedron/rime-greek)
@@ -45,14 +46,15 @@ engine:
     - punct_translator
     - table_translator
 
-menu:
-  alternative_select_keys: "123456789"
+# menu:
+#   alternative_select_keys: "123456789"
 
 speller:
-  alphabet: "abcdefghiklmnoprstuvwxyzABCDEFGHIKLMNOPRSTUVWXZ`/\\[]-=;',.^:"
-  delimiter: ' '
+  alphabet: "abcdefghiklmnopqrstuvwxyzABCDEFGHIKLMNOPQRSTUVWXZ`\\<>-=',^\""
+  initials: "abcdefghiklmnopqrstuvwxyzABCDEFGHIKLMNOPQRSTUVWXZ\\="
+  delimiter: ''
   algebra:
-    - derive/^[`[]=]?([AEIOURaeiour])[-y/\^:v]*$/$1/
+    # - derive/^[`[]=]?([AEIOURaeiour])[-y/\^:v]*$/$1/
     - derive/sq/s/
   auto_select: true #
 
@@ -63,10 +65,11 @@ translator:
   enable_user_dict: false
 
 punctuator:
-  half_shape: &symtable
-    '?' : { commit: ';' }
-    ',' : { commit: '·' }
+  use_space: true
+  half_shape: &punct
     ' ' : { commit: ' ' }
+    '?' : ';'
+    ';' : ['·', ';']
 
 #key_binder:
 #  import_preset: default
