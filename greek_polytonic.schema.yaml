@@ -50,8 +50,8 @@ engine:
 #   alternative_select_keys: "123456789"
 
 speller:
-  alphabet: "abcdefghiklmnopqrstuvwxyzABCDEFGHIKLMNOPQRSTUVWXZ`\\<>-=',^\""
-  initials: "abcdefghiklmnopqrstuvwxyzABCDEFGHIKLMNOPQRSTUVWXZ\\="
+  alphabet: "abcdefghiklmnopqrstuvwxyzABCDEFGHIKLMNOPQRSTUVWXZ`\\/<>-=',^\""
+  initials: "abcdefghiklmnopqrstuvwxyzABCDEFGHIKLMNOPQRSTUVWXZ\\/<>="
   delimiter: ''
   algebra:
     # - derive/^[`[]=]?([AEIOURaeiour])[-y/\^:v]*$/$1/
